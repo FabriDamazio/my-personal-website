@@ -57,7 +57,15 @@ defmodule Site.MixProject do
       {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      {:nimble_publisher, "~> 1.0"},
+      {:makeup, "~> 1.2"},
+      {:makeup_elixir, "~> 1.0"},
+      {:makeup_erlang, "~> 1.0"},
+      {:makeup_html, "~> 0.2.0"},
+      {:makeup_eex, "~> 2.0"},
+      {:makeup_syntect, "~> 0.1"},
+      {:earmark, "1.5.0-pre1", override: true}
     ]
   end
 
