@@ -32,7 +32,7 @@ defmodule SiteWeb.ConnCase do
   end
 
   setup tags do
-    Site.DataCase.setup_sandbox(tags)
+    #Site.DataCase.setup_sandbox(tags)
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end
