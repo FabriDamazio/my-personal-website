@@ -1,0 +1,27 @@
+defmodule Site.BlogTest do
+  use ExUnit.Case
+  alias Site.Blog
+
+  test "get_posts/1 returns the latest N posts in descending order" do
+    posts = Blog.get_posts(1)
+
+    assert length(posts) == 1
+
+    assert hd(posts) == %Site.Blog.Post{
+             id: "second",
+             author: "Fabricio Damazio",
+             title: "Second",
+             body: "<p>\nSecond! </p>\n",
+             description: "first",
+             tags: ["hello"],
+             date: ~D[2025-01-01]
+           }
+  end
+
+  test "get_posts/1 returns empty list when zero is passed" do
+    posts = Blog.get_posts(0)
+
+    assert length(posts) == 0
+    assert posts == []
+  end
+end
