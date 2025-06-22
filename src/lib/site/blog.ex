@@ -33,4 +33,13 @@ defmodule Site.Blog do
     |> Enum.sort_by(& &1.date, {:desc, Date})
     |> Enum.take(count)
   end
+
+  @doc """
+  Returns the posts with the given id.
+  """
+  @spec get_post(String.t()) :: Post.t() | nil
+  def get_post(id) when is_binary(id) do
+    all_posts()
+    |> Enum.find(fn x -> x.id == id end)
+  end
 end
