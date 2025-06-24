@@ -42,4 +42,14 @@ defmodule Site.Blog do
     all_posts()
     |> Enum.find(fn x -> x.id == id end)
   end
+
+  @doc """
+  Returns all posts filtered by the given tag.
+  """
+  @spec get_posts_by_tag(String.t()) :: [Post.t()]
+  def get_posts_by_tag(tag) when is_binary(tag) do
+    all_posts()
+    |> Enum.sort_by(& &1.date, {:desc, Date})
+    |> Enum.filter(fn x -> Enum.any?(x.tags, &(&1 == tag)) end)
+  end
 end
