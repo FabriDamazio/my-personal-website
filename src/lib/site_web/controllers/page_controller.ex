@@ -1,9 +1,9 @@
 defmodule SiteWeb.PageController do
   use SiteWeb, :controller
+  alias Site.Blog
 
   def home(conn, _params) do
-    # The home page is often custom made,
-    # so skip the default app layout.
-    render(conn, :home, layout: false)
+    posts = Blog.get_posts(8)
+    render(conn, :home, posts: posts, layout: false)
   end
 end
