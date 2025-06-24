@@ -52,4 +52,12 @@ defmodule Site.Blog do
     |> Enum.sort_by(& &1.date, {:desc, Date})
     |> Enum.filter(fn x -> Enum.any?(x.tags, &(&1 == tag)) end)
   end
+
+  @doc """
+  Returns all tags
+  """
+  @spec get_tags() :: [String.t()]
+  def get_tags() do
+    all_tags()
+  end
 end

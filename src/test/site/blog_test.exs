@@ -70,4 +70,12 @@ defmodule Site.BlogTest do
       assert_raise(FunctionClauseError, fn -> Blog.get_posts_by_tag(nil) end)
     end
   end
+
+  describe "get_tags" do
+    test "returns all tags" do
+      tags = Blog.get_tags()
+
+      assert length(tags) == 2
+    end
+  end
 end
