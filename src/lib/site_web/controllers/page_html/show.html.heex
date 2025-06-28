@@ -1,0 +1,36 @@
+<div class="max-w-3xl mx-auto px-4 py-8 text-gray-800">
+  <div class="mb-6">
+    <img
+      src={"/images/posts/#{@post.image}"}
+      alt={@post.title}
+      class="mx-auto rounded-lg shadow-md w-full object-cover"
+      style="aspect-ratio: 16 / 9;"
+    />
+  </div>
+
+  <div class="flex flex-wrap items-center justify-center gap-2 text-sm text-gray-500 mb-4">
+    <%= for tag <- @post.tags do %>
+      <span class={"bg-gray-200 text-gray-700 font-medium px-2 py-1 rounded-full text-xs uppercase tracking-wide "  <> tag_classes(tag)}>
+        {tag}
+      </span>
+    <% end %>
+
+    <span class="text-gray-400">•</span>
+
+    <time datetime={Date.to_iso8601(@post.date)}>
+      {Calendar.strftime(@post.date, "%d %b %Y")}
+    </time>
+  </div>
+
+  <h1 class="text-3xl font-bold text-center mb-2">
+    {@post.title}
+  </h1>
+
+  <p class="text-center text-gray-600 mb-6">
+    {@post.description}
+  </p>
+
+  <article class="prose prose-neutral max-w-none">
+    {raw(@post.body)}
+  </article>
+</div>

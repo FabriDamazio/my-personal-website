@@ -5,4 +5,16 @@ defmodule SiteWeb.PageControllerTest do
     conn = get(conn, ~p"/")
     assert html_response(conn, 200) =~ "Be a programmer or die trying"
   end
+
+  describe "GET /posts/" do
+    test "returns the given id post", %{conn: conn} do
+      conn = get(conn, ~p"/posts/2024/1/first")
+      assert html_response(conn, 200) =~ "First"
+    end
+
+    test "redirect if the url is wrong but id is right", %{conn: conn} do
+      conn = get(conn, ~p"/posts/202/1/first")
+      assert redirected_to(conn, 301) =~ "/posts/2024/1/first"
+    end
+  end
 end

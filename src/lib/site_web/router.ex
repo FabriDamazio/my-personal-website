@@ -18,6 +18,7 @@ defmodule SiteWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/posts/:year/:month/:id", PageController, :show
   end
 
   # Other scopes may use custom stacks.
