@@ -15,7 +15,8 @@ defmodule Site.BlogTest do
                description: "third",
                id: "third",
                tags: ["world"],
-               title: "Third"
+               title: "Third",
+               image: "third.jpg"
              }
     end
 
@@ -38,7 +39,8 @@ defmodule Site.BlogTest do
                body: "<p>\nSecond! </p>\n",
                description: "first",
                tags: ["hello"],
-               date: ~D[2025-01-01]
+               date: ~D[2025-01-01],
+               image: "second.jpg"
              }
     end
 
