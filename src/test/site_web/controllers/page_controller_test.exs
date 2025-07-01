@@ -17,4 +17,9 @@ defmodule SiteWeb.PageControllerTest do
       assert redirected_to(conn, 301) =~ "/posts/2024/1/first"
     end
   end
+
+  test "GET /about", %{conn: conn} do
+    conn = get(conn, ~p"/about")
+    assert html_response(conn, 200) =~ "aboutme"
+  end
 end

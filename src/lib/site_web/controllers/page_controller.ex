@@ -23,4 +23,8 @@ defmodule SiteWeb.PageController do
       render(conn, :show, post: post)
     end
   end
+
+  def about(conn, _params) do
+    render(conn, :about)
+  end
 end
