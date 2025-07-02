@@ -22,4 +22,12 @@ defmodule SiteWeb.PageControllerTest do
     conn = get(conn, ~p"/about")
     assert html_response(conn, 200) =~ "aboutme"
   end
+
+  describe "GET /posts?tag=x" do
+    test "returns all posts with given tag", %{conn: conn} do
+      conn = get(conn, ~p"/posts?tag=hello")
+      assert html_response(conn, 200) =~ "first" 
+      assert html_response(conn, 200) =~ "second" 
+    end
+  end
 end

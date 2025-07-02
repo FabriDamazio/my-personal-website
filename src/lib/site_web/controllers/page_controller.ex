@@ -4,7 +4,8 @@ defmodule SiteWeb.PageController do
 
   def home(conn, _params) do
     posts = Blog.get_posts(8)
-    render(conn, :home, posts: posts, layout: false)
+    tags = Blog.get_tags()
+    render(conn, :home, posts: posts, tags: tags, layout: false)
   end
 
   def show(conn, %{"year" => year, "month" => month, "id" => id}) do
@@ -26,5 +27,17 @@ defmodule SiteWeb.PageController do
 
   def about(conn, _params) do
     render(conn, :about)
+  end
+
+  def posts(conn, %{"tag" => tag}) do
+    posts = Blog.get_posts_by_tag(tag)
+    tags = Blog.get_tags()
+    render(conn, :home, posts: posts, tags: tags, layout: false)
+  end
+
+  def posts(conn, _params) do
+    posts = Blog.get_posts(8)
+    tags = Blog.get_tags()
+    render(conn, :home, posts: posts, tags: tags, layout: false)
   end
 end

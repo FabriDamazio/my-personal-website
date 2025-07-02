@@ -19,6 +19,7 @@ defmodule SiteWeb.Router do
 
     get "/", PageController, :home
     get "/about", PageController, :about
+    get "/posts", PageController, :posts
     get "/posts/:year/:month/:id", PageController, :show
   end
 
