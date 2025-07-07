@@ -18,9 +18,15 @@
             <p class="text-gray-500 text-sm">Be a programmer or die trying</p>
           </a>
         </div>
-        <nav class="space-x-4 mt-4 sm:mt-0 mr-2">
-          <a href="/about" class="text-zinc-600 hover:text-zinc-900 hover:font-bold transition">
-            About me
+        <nav class="space-x-4 mt-4 sm:mt-0 mr-2 flex items-center">
+          <a href="/pt" class="text-xl hover:opacity-60 hover:scale-110 transition-transform duration-200" title="Português">🇧🇷</a>
+          <a href="/en" class="text-xl hover:opacity-60 hover:scale-110 transition-transform duration-200" title="English">🇺🇸</a>
+          <a href="/zh" class="text-xl hover:opacity-60 hover:scale-110 transition-transform duration-200" title="中文">🇨🇳</a>
+          <a
+            href="/about"
+            class="ml-4 text-zinc-600 hover:text-zinc-900 hover:font-bold transition"
+          >
+            <%= gettext "About me" %>
           </a>
         </nav>
       </div>
