@@ -8,6 +8,7 @@ defmodule SiteWeb.Router do
     plug :put_root_layout, html: {SiteWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug SiteWeb.Plugs.SetLocalePlug
   end
 
   pipeline :api do

@@ -19,18 +19,52 @@
           </a>
         </div>
         <nav class="space-x-4 mt-4 sm:mt-0 mr-2 flex items-center">
-          <a href="/pt" class="text-xl hover:opacity-60 hover:scale-110 transition-transform duration-200" title="Português">🇧🇷</a>
-          <a href="/en" class="text-xl hover:opacity-60 hover:scale-110 transition-transform duration-200" title="English">🇺🇸</a>
-          <a href="/zh" class="text-xl hover:opacity-60 hover:scale-110 transition-transform duration-200" title="中文">🇨🇳</a>
+          <a
+            href={generate_locale_url(@conn, "pt")}
+            class="text-xl opacity-90 hover:opacity-60 hover:scale-110 transition-transform duration-200"
+            title="Português"
+          >
+            🇧🇷
+          </a>
+          <a
+            href={generate_locale_url(@conn, "en")}
+            class="text-xl opacity-90 hover:opacity-60 hover:scale-110 transition-transform duration-200"
+            title="English"
+          >
+            🇺🇸
+          </a>
+          <a
+            href={generate_locale_url(@conn, "zh")}
+            class="text-xl opacity-90 hover:opacity-60 hover:scale-110 transition-transform duration-200"
+            title="中文"
+          >
+            🇨🇳
+          </a>
           <a
             href="/about"
             class="ml-4 text-zinc-600 hover:text-zinc-900 hover:font-bold transition"
           >
-            <%= gettext "About me" %>
+            {gettext("About me")}
           </a>
         </nav>
       </div>
     </header>
+    <script>
+      (function () {
+        const hasLocaleQuery = window.location.search.includes("locale=");
+        const hasLocaleCookie = document.cookie.split('; ').some(cookie => cookie.startsWith("locale="));
+        
+        if (!hasLocaleQuery && !hasLocaleCookie) {
+          const lang = navigator.language || navigator.userLanguage; //ex: pt-BR
+          const locale = lang.split("-")[0]; //ex: pt, en, etc
+
+          const url = new URL(window.location.href);
+          url.searchParams.set("locale", locale);
+
+          window.location.href = url.toString();
+        }
+      })();
+    </script>
   </head>
   <body class="bg-white">
     {@inner_content}

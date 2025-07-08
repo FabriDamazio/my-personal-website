@@ -55,4 +55,4 @@ msgstr ""
 #: lib/site_web/components/layouts/root.html.heex:29
 #, elixir-autogen, elixir-format
 msgid "About me"
-msgstr ""
+msgstr "关于我"
