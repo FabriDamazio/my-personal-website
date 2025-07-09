@@ -7,9 +7,9 @@
 # General application configuration
 import Config
 
-config :site,
-  ecto_repos: [Site.Repo],
-  generators: [timestamp_type: :utc_datetime]
+# config :site,
+#   ecto_repos: [Site.Repo],
+#   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
 config :site, SiteWeb.Endpoint,
