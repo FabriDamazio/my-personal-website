@@ -13,40 +13,20 @@ defmodule SiteWeb.Layouts do
   embed_templates "layouts/*"
 
   def generate_locale_url(conn, locale) do
-    if Mix.env() == :prod do
-      uri = %URI{
-        scheme: "https",
-        host: "fabridamazio.com",
-        port: 443,
-        path: conn.request_path,
-        query: conn.query_string
-      }
+    uri = %URI{
+      scheme: to_string(conn.scheme),
+      host: conn.host,
+      port: conn.port,
+      path: conn.request_path,
+      query: conn.query_string
+    }
 
-      query_params = URI.decode_query(uri.query || "")
-      query_params = Map.put(query_params, "locale", locale)
-      URI.to_string(%{uri | query: URI.encode_query(query_params)})
-    else
-      endpoint_config = Application.fetch_env!(:site, SiteWeb.Endpoint)
-      url_config = endpoint_config[:url] || []
-      http_config = endpoint_config[:http] || []
+    query_params = URI.decode_query(uri.query || "")
+    query_params = Map.put(query_params, "locale", locale)
 
-      scheme = url_config[:scheme]
-      host = url_config[:host]
-      url_port = url_config[:port]
-      http_port = Keyword.get(http_config, :port)
-      port = url_port || http_port
+    new_query = URI.encode_query(query_params)
+    new_uri = %{uri | query: new_query}
 
-      uri = %URI{
-        scheme: scheme,
-        host: host,
-        port: port,
-        path: conn.request_path,
-        query: conn.query_string
-      }
-
-      query_params = URI.decode_query(uri.query || "")
-      query_params = Map.put(query_params, "locale", locale)
-      URI.to_string(%{uri | query: URI.encode_query(query_params)})
-    end
+    URI.to_string(new_uri)
   end
 end
