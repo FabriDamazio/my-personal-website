@@ -1,6 +1,6 @@
 defmodule Site.Blog.Post do
-  @enforce_keys [:id, :author, :title, :body, :description, :tags, :date, :image]
-  defstruct [:id, :author, :title, :body, :description, :tags, :date, :image]
+  @enforce_keys [:id, :author, :title, :body, :description, :tags, :date, :image, :language]
+  defstruct [:id, :author, :title, :body, :description, :tags, :date, :image, :language]
 
   @type t :: %__MODULE__{
           id: String.t(),
@@ -10,13 +10,19 @@ defmodule Site.Blog.Post do
           description: String.t(),
           tags: [String.t()],
           date: Date.t(),
-          image: String.t()
+          image: String.t(),
+          language: String.t()
         }
 
   def build(filename, attrs, body) do
-    [year, month_day_id] = filename |> Path.rootname() |> Path.split() |> Enum.take(-2)
-    [month, day, id] = String.split(month_day_id, "-", parts: 3)
+    [year, rest] = filename |> Path.rootname() |> Path.split() |> Enum.take(-2)
+    [month, day, language, id] = String.split(rest, "-", parts: 4)
     date = Date.from_iso8601!("#{year}-#{month}-#{day}")
-    struct!(__MODULE__, [id: id, date: date, body: body, image: "#{id}.jpg"] ++ Map.to_list(attrs))
+
+    struct!(
+      __MODULE__,
+      [id: id, date: date, body: body, image: "#{id}.jpg", language: language] ++
+        Map.to_list(attrs)
+    )
   end
 end

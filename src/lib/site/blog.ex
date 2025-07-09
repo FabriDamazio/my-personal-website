@@ -31,6 +31,7 @@ defmodule Site.Blog do
   def get_posts(count) when is_integer(count) do
     all_posts()
     |> Enum.sort_by(& &1.date, {:desc, Date})
+    |> Enum.filter(fn x -> x.language == SiteWeb.Gettext |> Gettext.get_locale() end)
     |> Enum.take(count)
   end
 
@@ -50,6 +51,7 @@ defmodule Site.Blog do
   def get_posts_by_tag(tag) when is_binary(tag) do
     all_posts()
     |> Enum.sort_by(& &1.date, {:desc, Date})
+    |> Enum.filter(fn x -> x.language == SiteWeb.Gettext |> Gettext.get_locale() end)
     |> Enum.filter(fn x -> Enum.any?(x.tags, &(&1 == tag)) end)
   end
 
