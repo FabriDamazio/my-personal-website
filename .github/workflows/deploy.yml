@@ -6,12 +6,12 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Elixir and OTP
         uses: erlef/setup-beam@v1
@@ -27,7 +27,14 @@ jobs:
         working-directory: ./src
         run: mix compile
 
-      - name: Fly Deploy
-        uses: superfly/flyctl-actions/setup-flyctl@master
+  deploy:
+    name: Deploy proxy
+    runs-on: ubuntu-latest
+    steps:
+      # This step checks out a copy of your repository.
+      - uses: actions/checkout@v2
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        working-directory: ./src
