@@ -13,9 +13,25 @@ defmodule SiteWeb.Layouts do
   embed_templates "layouts/*"
 
   def generate_locale_url(conn, locale) do
-    uri =
-      Phoenix.Controller.current_url(conn)
-      |> URI.parse()
+    endpoint_config = Application.fetch_env!(:site, SiteWeb.Endpoint)
+
+    url_config = endpoint_config[:url] || []
+    http_config = endpoint_config[:http] || []
+
+    scheme = url_config[:scheme]
+    host = url_config[:host]
+    url_port = url_config[:port]
+    http_port = Keyword.get(http_config, :port)
+
+    port = url_port || http_port
+
+    uri = %URI{
+      scheme: scheme,
+      host: host,
+      path: conn.request_path,
+      query: conn.query_string,
+      port: port
+    }
 
     query_params = URI.decode_query(uri.query || "")
     query_params = Map.put(query_params, "locale", locale)

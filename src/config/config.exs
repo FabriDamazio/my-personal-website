@@ -62,8 +62,9 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 
 # Default locales supported
-config :site, SiteWeb.Gettext, locales: ~w(pt en zh),
-default_locale: "en"
+config :site, SiteWeb.Gettext,
+  locales: ~w(pt en zh),
+  default_locale: "en"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

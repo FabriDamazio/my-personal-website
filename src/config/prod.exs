@@ -13,7 +13,7 @@ config :site, SiteWeb.Endpoint,
     "https://www.fabridamazio.com",
     "https://my-personal-website.fly.dev"
   ],
-cache_static_manifest: "priv/static/cache_manifest.json"
+  cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Configures Swoosh API Client
 config :swoosh, api_client: Swoosh.ApiClient.Finch, finch_name: Site.Finch

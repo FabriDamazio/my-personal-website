@@ -3,6 +3,7 @@ defmodule Site.Release do
   Used for executing DB release tasks when run in production without Mix
   installed.
   """
+
   # @app :site
 
   def migrate, do: :ok
