@@ -3,7 +3,7 @@ defmodule SiteWeb.PageController do
   alias Site.Blog
 
   def home(conn, _params) do
-    posts = Blog.get_posts(8)
+    posts = Blog.get_posts(8, SiteWeb.Gettext |> Gettext.get_locale())
     tags = Blog.get_tags()
     render(conn, :home, posts: posts, tags: tags, layout: false)
   end
@@ -36,7 +36,7 @@ defmodule SiteWeb.PageController do
   end
 
   def posts(conn, _params) do
-    posts = Blog.get_posts(8)
+    posts = Blog.get_posts(8, Gettext |> Gettext.get_locale())
     tags = Blog.get_tags()
     render(conn, :home, posts: posts, tags: tags, layout: false)
   end

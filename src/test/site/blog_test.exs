@@ -4,7 +4,7 @@ defmodule Site.BlogTest do
 
   describe "get_posts/1" do
     test "returns the latest N posts in descending order" do
-      posts = Blog.get_posts(1)
+      posts = Blog.get_posts(1, "en")
 
       assert length(posts) == 1
 
@@ -22,7 +22,7 @@ defmodule Site.BlogTest do
     end
 
     test "returns empty list when zero is passed" do
-      posts = Blog.get_posts(0)
+      posts = Blog.get_posts(0, "en")
 
       assert length(posts) == 0
       assert posts == []

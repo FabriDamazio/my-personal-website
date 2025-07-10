@@ -1,8 +1,8 @@
 %{
-    title: "Hello World!",
+    title: "Ola mundo",
     author: "Fabricio Damazio",
     tags: ~w(hello),
-    description: "Why not start with a hello world???"
+    description: "Pq não começar com um Olá Mundo???"
 }
 ---
-Hello World!!!!
+Olá Mundo!!!!
