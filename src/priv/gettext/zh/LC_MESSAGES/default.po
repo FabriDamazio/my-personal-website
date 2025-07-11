@@ -71,3 +71,9 @@ msgstr "我是一名独立开发者，喜欢开始那些可能永远不会完成
 #, elixir-autogen, elixir-format
 msgid "motto"
 msgstr "不当程序员，便永不放弃 "
+
+#: lib/site_web/controllers/page_controller.ex:27
+#, elixir-autogen, elixir-format
+msgid "post-not-found-locale"
+msgstr "此帖子不提供此语言版本或不存在。"
+

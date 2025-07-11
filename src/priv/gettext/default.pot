@@ -71,3 +71,8 @@ msgstr ""
 #, elixir-autogen, elixir-format
 msgid "motto"
 msgstr ""
+
+#: lib/site_web/controllers/page_controller.ex:27
+#, elixir-autogen, elixir-format
+msgid "post-not-found-locale"
+msgstr ""

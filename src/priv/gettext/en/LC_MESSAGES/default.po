@@ -71,3 +71,8 @@ msgstr "I'm an indie developer who loves starting projects I’ll probably never
 #, elixir-autogen, elixir-format
 msgid "motto"
 msgstr "Be a programmer or die trying"
+
+#: lib/site_web/controllers/page_controller.ex:27
+#, elixir-autogen, elixir-format
+msgid "post-not-found-locale"
+msgstr "This post is not available in this language or does not exist."

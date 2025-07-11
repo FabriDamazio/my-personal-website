@@ -41,8 +41,7 @@ defmodule Site.Blog do
   @spec get_post(String.t()) :: Post.t() | nil
   def get_post(id) when is_binary(id) do
     all_posts()
-    |> Enum.filter(fn x -> x.language == SiteWeb.Gettext |> Gettext.get_locale() end)
-    |> Enum.find(fn x -> x.id == id end)
+    |> Enum.filter(fn x -> x.id == id end)
   end
 
   @doc """

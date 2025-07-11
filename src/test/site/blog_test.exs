@@ -33,7 +33,7 @@ defmodule Site.BlogTest do
     test "returns the given id post" do
       post = Blog.get_post("second")
 
-      assert post == %Site.Blog.Post{
+      assert post == [%Site.Blog.Post{
                id: "second",
                author: "Fabricio Damazio",
                title: "Second",
@@ -43,13 +43,13 @@ defmodule Site.BlogTest do
                date: ~D[2025-01-01],
                image: "second.jpg",
                language: "en"
-             }
+             }]
     end
 
-    test "returns nil when post dont exists" do
+    test "returns empty list when post dont exists" do
       post = Blog.get_post("nonexistent")
 
-      assert post == nil
+      assert post == [] 
     end
   end
 
