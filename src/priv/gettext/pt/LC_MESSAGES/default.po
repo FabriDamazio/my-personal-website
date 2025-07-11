@@ -52,7 +52,22 @@ msgstr ""
 msgid "close"
 msgstr ""
 
-#: lib/site_web/components/layouts/root.html.heex:29
+#: lib/site_web/components/layouts/root.html.heex:47
 #, elixir-autogen, elixir-format
 msgid "About me"
 msgstr "Sobre mim"
+
+#: lib/site_web/controllers/page_html/about.html.heex:7
+#, elixir-autogen, elixir-format
+msgid "Indie Developer"
+msgstr "Indie Dev"
+
+#: lib/site_web/controllers/page_html/about.html.heex:11
+#, elixir-autogen, elixir-format
+msgid "about-me-page-text"
+msgstr "Sou um desenvolvedor indie que adora começar projetos que provavelmente nunca vão ser terminados. Gosto de desenvolvimento de jogos, Elixir, Rust, código aberto e free software."
+
+#: lib/site_web/components/layouts/root.html.heex:18
+#, elixir-autogen, elixir-format
+msgid "motto"
+msgstr "Seja um programador ou morra tentando"

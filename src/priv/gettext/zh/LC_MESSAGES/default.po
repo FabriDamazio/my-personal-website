@@ -52,7 +52,22 @@ msgstr ""
 msgid "close"
 msgstr ""
 
-#: lib/site_web/components/layouts/root.html.heex:29
+#: lib/site_web/components/layouts/root.html.heex:47
 #, elixir-autogen, elixir-format
 msgid "About me"
 msgstr "关于我"
+
+#: lib/site_web/controllers/page_html/about.html.heex:7
+#, elixir-autogen, elixir-format
+msgid "Indie Developer"
+msgstr "独立开发者"
+
+#: lib/site_web/controllers/page_html/about.html.heex:11
+#, elixir-autogen, elixir-format
+msgid "about-me-page-text"
+msgstr "我是一名独立开发者，喜欢开始那些可能永远不会完成的项目。我喜欢游戏开发、Elixir、Rust、开源和自由软件。"
+
+#: lib/site_web/components/layouts/root.html.heex:18
+#, elixir-autogen, elixir-format
+msgid "motto"
+msgstr "不当程序员，便永不放弃 "
