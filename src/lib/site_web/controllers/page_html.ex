@@ -15,6 +15,7 @@ defmodule SiteWeb.PageHTML do
       "programming" -> "bg-cyan-100 text-cyan-800"
       "rust" -> "bg-orange-100 text-orange-800"
       "gamedev" -> "bg-green-100 text-green-800"
+      "offtopic" -> "bg-blue-100 text-blue-800"
       _ -> "bg-gray-200 text-gray-800"
     end
   end

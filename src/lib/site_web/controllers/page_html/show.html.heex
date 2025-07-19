@@ -3,9 +3,11 @@
     <img
       src={"/images/posts/#{@post.image}"}
       alt={@post.title}
-      class="mx-auto rounded-lg shadow-md w-full object-cover"
-      style="aspect-ratio: 16 / 9;"
+      class="mx-auto rounded-lg shadow-md w-full object-contain"
     />
+    <figcaption class="mt-2 text-sm text-center text-gray-500 italic">
+      {@post.image_description}
+    </figcaption>
   </div>
 
   <div class="flex flex-wrap items-center justify-center gap-2 text-sm text-gray-500 mb-4">

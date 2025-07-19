@@ -16,8 +16,9 @@ defmodule Site.BlogTest do
                id: "third",
                tags: ["world"],
                title: "Third",
-               image: "third.jpg",
-               language: "en"
+               image: "third.png",
+               language: "en",
+               image_description: "image"
              }
     end
 
@@ -33,23 +34,26 @@ defmodule Site.BlogTest do
     test "returns the given id post" do
       post = Blog.get_post("second")
 
-      assert post == [%Site.Blog.Post{
-               id: "second",
-               author: "Fabricio Damazio",
-               title: "Second",
-               body: "<p>\nSecond! </p>\n",
-               description: "first",
-               tags: ["hello"],
-               date: ~D[2025-01-01],
-               image: "second.jpg",
-               language: "en"
-             }]
+      assert post == [
+               %Site.Blog.Post{
+                 id: "second",
+                 author: "Fabricio Damazio",
+                 title: "Second",
+                 body: "<p>\nSecond! </p>\n",
+                 description: "first",
+                 tags: ["hello"],
+                 date: ~D[2025-01-01],
+                 image: "second.png",
+                 language: "en",
+                 image_description: "image"
+               }
+             ]
     end
 
     test "returns empty list when post dont exists" do
       post = Blog.get_post("nonexistent")
 
-      assert post == [] 
+      assert post == []
     end
   end
 
