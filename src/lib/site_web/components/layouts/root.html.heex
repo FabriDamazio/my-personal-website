@@ -7,7 +7,15 @@
     <.live_title default="Fabri Damazio" suffix=" · Blog">
       {assigns[:page_title]}
     </.live_title>
-    <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
+    <link rel="preconnect" href="https://fabridamazio.com" />
+    <link
+      rel="preload"
+      href={~p"/assets/app.css"}
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      phx-track-static
+    />
+    <noscript><link rel="stylesheet" href={~p"/assets/app.css"} phx-track-static /></noscript>
     <!-- <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
     </script> -->
     <header class="bg-gray-800 shadow">
