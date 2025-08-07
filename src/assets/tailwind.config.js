@@ -18,6 +18,15 @@ module.exports = {
       }
     },
   },
+  corePlugins: {
+    float: false,
+    animation: false,
+    gradient: false,
+    filter: false,
+    backdropFilter: false,
+    ringWidth: false,
+    skew: false,
+  },
   plugins: [
    // require("@tailwindcss/forms"),
    // // Allows prefixing tailwind classes with LiveView classes to add rules
