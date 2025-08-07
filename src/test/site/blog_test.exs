@@ -16,9 +16,7 @@ defmodule Site.BlogTest do
                id: "third",
                tags: ["world"],
                title: "Third",
-               image: "third.png",
                language: "en",
-               image_description: "image"
              }
     end
 
@@ -43,9 +41,7 @@ defmodule Site.BlogTest do
                  description: "first",
                  tags: ["hello"],
                  date: ~D[2025-01-01],
-                 image: "second.png",
                  language: "en",
-                 image_description: "image"
                }
              ]
     end

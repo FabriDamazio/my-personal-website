@@ -2,7 +2,6 @@
     title: "Hello World",
     author: "Fabricio Damazio",
     tags: ~w(offtopic),
-    image_description: "Hello, World program handwritten in the C language by Brian Kernighan.",
     description: "Everything begins with a Hello World."
 }
 ---

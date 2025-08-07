@@ -7,9 +7,7 @@ defmodule Site.Blog.Post do
     :description,
     :tags,
     :date,
-    :image,
     :language,
-    :image_description
   ]
   defstruct [
     :id,
@@ -19,9 +17,7 @@ defmodule Site.Blog.Post do
     :description,
     :tags,
     :date,
-    :image,
     :language,
-    :image_description
   ]
 
   @type t :: %__MODULE__{
@@ -32,9 +28,7 @@ defmodule Site.Blog.Post do
           description: String.t(),
           tags: [String.t()],
           date: Date.t(),
-          image: String.t(),
           language: String.t(),
-          image_description: String.t()
         }
 
   def build(filename, attrs, body) do
@@ -44,7 +38,7 @@ defmodule Site.Blog.Post do
 
     struct!(
       __MODULE__,
-      [id: id, date: date, body: body, image: "#{id}.png", language: language] ++
+      [id: id, date: date, body: body, language: language] ++
         Map.to_list(attrs)
     )
   end

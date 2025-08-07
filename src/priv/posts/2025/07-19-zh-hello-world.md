@@ -2,7 +2,6 @@
     title: "你好世界",
     author: "Fabricio Damazio",
     tags: ~w(offtopic),
-    image_description: "Brian Kernighan手写的C语言Hello World程序",
     description: "一切从「你好世界」开始"
 }
 ---
