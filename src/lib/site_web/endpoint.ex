@@ -22,7 +22,9 @@ defmodule SiteWeb.Endpoint do
   plug Plug.Static,
     at: "/",
     from: :site,
-    gzip: false,
+    gzip: true,
+    brotli: true,
+    cache_control_for_etags: "public, max-age=31536000, immutable",
     only: SiteWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
