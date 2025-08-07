@@ -26,6 +26,8 @@ module.exports = {
     backdropFilter: false,
     ringWidth: false,
     skew: false,
+    rotate: false,
+    translate: false,
   },
   plugins: [
    // require("@tailwindcss/forms"),
