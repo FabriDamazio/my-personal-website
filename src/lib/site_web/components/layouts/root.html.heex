@@ -8,7 +8,7 @@
     <.live_title default="Fabri Damazio" suffix=" · Blog">
       {assigns[:page_title]}
     </.live_title>
-    <link rel="preconnect" href="https://fabridamazio.com" />
+    <!--<link rel="preconnect" href="https://fabridamazio.com" />
     <style>
       body { background-color: #111827; } /* bg-gray-900 */
     </style>
@@ -21,10 +21,11 @@
     />
     <link rel="preload" href="/images/br_flag.svg" as="image" type="image/svg+xml" />
     <link rel="preload" href="/images/us_flag.svg" as="image" type="image/svg+xml" />
-    <link rel="preload" href="/images/cn_flag.svg" as="image" type="image/svg+xml" />
-    <noscript><link rel="stylesheet" href={~p"/assets/app.css"} phx-track-static /></noscript>
-    <!-- <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
-    </script> -->
+    <link rel="preload" href="/images/cn_flag.svg" as="image" type="image/svg+xml" />-->
+    <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
+    </script> 
+    <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
+    <!--<noscript><link rel="stylesheet" href={~p"/assets/app.css"} phx-track-static /></noscript>-->
     <header class="bg-gray-800 shadow">
       <div class="container mx-auto max-w-5xl px-4 py-6 flex flex-col sm:flex-row sm:justify-between sm:items-center">
         <div>
