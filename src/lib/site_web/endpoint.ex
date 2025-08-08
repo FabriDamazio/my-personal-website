@@ -23,7 +23,6 @@ defmodule SiteWeb.Endpoint do
     at: "/",
     from: :site,
     gzip: true,
-    brotli: true,
     cache_control_for_etags: "public, max-age=31536000, immutable",
     only: SiteWeb.static_paths()
 
