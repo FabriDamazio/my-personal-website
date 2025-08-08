@@ -11,13 +11,6 @@ module.exports = {
     "../lib/site_web.ex",
     "../lib/site_web/**/*.*ex"
   ],
-  theme: {
-    extend: {
-      colors: {
-        brand: "#FD4F00",
-      }
-    },
-  },
   corePlugins: {
     float: false,
     animation: false,
