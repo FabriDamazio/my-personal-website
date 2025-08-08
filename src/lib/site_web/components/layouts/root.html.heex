@@ -9,6 +9,9 @@
       {assigns[:page_title]}
     </.live_title>
     <link rel="preconnect" href="https://fabridamazio.com" />
+    <style>
+      body { background-color: #111827; } /* bg-gray-900 */
+    </style>
     <link
       rel="preload"
       href={~p"/assets/app.css"}
@@ -36,21 +39,39 @@
             class="text-xl opacity-90 hover:opacity-60 hover:scale-110 transition-transform duration-200"
             title="Português"
           >
-            <img src="/images/br_flag.svg" alt="Brasil" width="24" height="24" class="inline-block" />
+            <img
+              src="/images/br_flag.svg"
+              alt="Brasil"
+              width="24"
+              height="24"
+              class="inline-block"
+            />
           </a>
           <a
             href={generate_locale_url(@conn, "en")}
             class="text-xl opacity-90 hover:opacity-60 hover:scale-110 transition-transform duration-200"
             title="English"
           >
-            <img src="/images/us_flag.svg" alt="United States" width="24" height="24" class="inline-block" />
+            <img
+              src="/images/us_flag.svg"
+              alt="United States"
+              width="24"
+              height="24"
+              class="inline-block"
+            />
           </a>
           <a
             href={generate_locale_url(@conn, "zh")}
             class="text-xl opacity-90 hover:opacity-60 hover:scale-110 transition-transform duration-200"
             title="中文"
           >
-            <img src="/images/cn_flag.svg" alt="United States" width="24" height="24" class="inline-block" />
+            <img
+              src="/images/cn_flag.svg"
+              alt="United States"
+              width="24"
+              height="24"
+              class="inline-block"
+            />
           </a>
           <a
             href="/about"
