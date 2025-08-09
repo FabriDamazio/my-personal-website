@@ -31,7 +31,7 @@ Sendo assim, a primeira request teve esta resposta:
 - cn_flag.svg (722B)
 - favicon.ico (468B)
 
-No total foram 54.64kB de dados recebidos. 
+No total foram 53.64kB de dados recebidos. 
 Nada mal para um app padrão, mas com o espaço para diversas melhorias.
 
 # Removendo app.js
@@ -127,11 +127,24 @@ agora tem apenas 698B, totalizando 10.21kB.
 
 # O Depois
 
+Para finalizar, melhorei algumas classes CSS e cheguei no seguinte resultado (ANTES/DEPOIS):
+
+- html (3.04kB) -> (2.48kB)
+- app.js (39.26kB) -> (0kB)
+- app.css (6.64kB) -> (3.95kB)
+- br_flag.svg (2.81kB) -> (698B)
+- us_flag.svg (702B) -> (702B)
+- cn_flag.svg (722B) -> (722B)
+- favicon.ico (468B) -> (468B)
+- TOTAL: (53.64kB) -> (9.02kB) 
+
+Ainda existe espaço para mais otimizações mas por enquanto vou parar por aqui.
+
 Com essas otimizações foi possível manter o blog com um tamanho ridiculamente pequeno.
 No momento, a soma do tamanho de todos arquivos recebidos na primeira request é
-menor que 10Kb.
+perto de 9Kb.
 
 Isso sem nenhum tipo de cache. Depois do primeiro acesso com o CSS e SVG já em cache,
-o blog tem apenas 3.1Kb de dados enviados e reponde em média abaixo de incríveis 20ms.
+o blog tem apenas 2.48Kb de dados enviados e reponde em média abaixo de incríveis 20ms.
 
 Rápido, muito rápido.
