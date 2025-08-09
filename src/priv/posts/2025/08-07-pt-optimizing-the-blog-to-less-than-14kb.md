@@ -9,18 +9,19 @@ Ontem estava assistindo alguns vídeos aleatórios na internet quando vi
 [este vídeo ↗](https://www.youtube.com/watch?v=ciNXbR5wvhU){: target="_blank" .font-medium .text-pink-800 }
 do Primeagen no Youtube. O vídeo é sobre [este post ↗](https://endtimes.dev/why-your-website-should-be-under-14kb-in-size/)
 {: target="_blank" .font-medium .text-pink-800 } que fala sobre como páginas menores que 14kB carregam muito rápido.
-<br>
-Durante o vídeo ele questiona se seria possível fazer isso utilizando Phoenix Framework
-e por isso resolvi tentar otimizar este blog que é feito em Phoenix. Abaixo vou 
-explicar o processo e mostrar o resultado.
+
+Durante o vídeo fiquei pensando em maneiras de como eu poderia otimizar este blog 
+que é feito em Elixir utilizando o Phoenix Framework.
+
+Abaixo vou explicar o processo de otimização e mostrar o resultado.
 
 # O Antes
 
 O blog é um app Phoenix padrão. Nenhum tipo de otimização extra foi realizado.
-Meu primeiro teste será realizar o acess com o cache desligado e anotar a 
+Meu primeiro teste será acessar o blog com o cache desligado e anotar o tamanho da 
 resposta da request. Assim será possível comparar o antes e o depois.
 
-A primeira request teve esta resposta:
+Sendo assim, a primeira request teve esta resposta:
 
 - html (3.04kB)
 - app.js (39.26kB)
@@ -30,10 +31,8 @@ A primeira request teve esta resposta:
 - cn_flag.svg (722B)
 - favicon.ico (468B)
 
-No total foram 54.64kB de dados em um tempo de aproximadamente 110ms.
-Nada mal para um app padrão, mas bem acima dos 14kB propostos.
-
-Hora de começar a otimizar.
+No total foram 54.64kB de dados recebidos. 
+Nada mal para um app padrão, mas com o espaço para diversas melhorias.
 
 # Removendo app.js
 
@@ -43,7 +42,7 @@ utilização de Liveview, interaçã́o com eventos como o phx-click e hooks. P
 eu não preciso de nada disso. O blog é apenas um site estático que renderiza
 em HTML posts escritos em markdown. 
 
-Depois de removido o arquivo, a resposta da request ficou assim:
+Depois de removido o apps.js, a resposta da request ficou assim:
 
 - html (3.02kB)
 - app.js (0kB) - removido
@@ -53,15 +52,14 @@ Depois de removido o arquivo, a resposta da request ficou assim:
 - cn_flag.svg (722B)
 - favicon.ico (468B)
 
-No total foram 14.36kB de dados em um tempo de aproximadamente 97ms.
-Uma melhoria e tanto, mas ainda ligeiramenta acima dos 14kB.
+No total foram 14.36kB de dados recebidos. 
+Uma melhoria e tanto, mas ainda não o suficiente.
 
 # Otimizando o Tailwind
 
-Odeio escrever CSS, por isso não abri mão de usar o Tailwind. Eu poderia pedir
-para alguma IA escrever o CSS mas resolvi tentar otimizar o uso do Tailwind.
+Odeio escrever CSS, por isso não abri mão de usar o Tailwind.
 Em um app Phoenix existe um arquivo chamado tailwind.config.js onde é possível
-fazer uma série de configurações de uso do framework. Removi todos plugins e 
+fazer uma série de configurações de uso do Tailwind. Removi todos plugins e 
 core components possíveis, deixando o arquivo assim:
 
 ```js
@@ -82,7 +80,7 @@ module.exports = {
     rotate: false,
     translate: false,
   },
-  plugins: [
+  plugins: []
 ```
 Com essas mudanças, o tamanho do CSS gerado diminuiu e a resposta
 da request ficou assim:
@@ -94,10 +92,7 @@ da request ficou assim:
 - cn_flag.svg (722B)
 - favicon.ico (468B)
 
-No total foram 12.32kB de dados em um tempo de aproximadamente 95ms.
-Agora o blog esta abaixo de 14kB, mas por muito pouco. Preciso economizar mais
-um pouco de bytes porque o limite será ultrapassado assim que eu criar novos 
-posts e eles forem exibidos na home.
+No total foram 12.32kB de dados recebidos. Já esta absurdamente rápido.
 
 # CSS e SVG preload
 
@@ -105,23 +100,38 @@ Para melhorar o tempo de carregamento, configurei o preload do CSS. Isso permite
 que o CSS seja carregado em paralelo e ele otimiza indicadores como o LCP 
 (Largest Contentful Paint) que deixa a renderização do conteúdo principal mais rápido
 e o CLS (Cumulative Layout Shift) que evita saltos no layout durante o carregamento.
+Para isso bastou adicionar algo como:
+
+```html
+<link
+  rel="preload"
+  href={~p"/assets/app.css"}
+  as="style"
+  ...
+/>
+``` 
+
+Agora as bandeiras...
 
 Para representar as bandeiras, o Unicode usa uma combinação de caracteres chamados
-"tag sequences". Isso permitiu que eu mostrasse as bandeiras de linguagem do blog 
+"tag sequences". Isso permitiu que eu implementasse as bandeiras de linguagem do blog 
 utilizando apenas emojis, sem a necessidade de imagens ou SVG. Infelizmente fazendo 
 alguns testes descobri que o Windows não implementa nativamente os emojis de 
-bandeiras (obrigado Microsoft!). A saída então foi usar SVGs.
+bandeiras (obrigado Microsoft!). A saída então foi usar SVGs com preload.
 
-Com o preload do CSS e do SVG não houve mudança da quantidade de dados e na velocidade
-de carregamento.
+# Simplificando a bandeira do Brasil
 
-
+Os 2.81kB do SVG da bandeira do Brasil parecem abusivos. Para um ícone tão pequeno
+na tela alguns detalhes da bandeira podem ser omitidos. Com essa mudança a bandeira
+agora tem apenas 698B, totalizando 10.21kB.
 
 # O Depois
 
-Com essas otimizações foi possível manter o blog abaixo dos 14Kb. No momento a 
-primeira request tem 8Kb de tamanho e com tempo médio de carregamento de 30ms.
-Isso sem nenhum tipo de cache. Depois do primeiro acesso com o CSS e SVG em cache
-o blog tem apenas 4Kb e reponde em incríveis 20ms.
+Com essas otimizações foi possível manter o blog com um tamanho ridiculamente pequeno.
+No momento, a soma do tamanho de todos arquivos recebidos na primeira request é
+menor que 10Kb.
+
+Isso sem nenhum tipo de cache. Depois do primeiro acesso com o CSS e SVG já em cache,
+o blog tem apenas 3.1Kb de dados enviados e reponde em média abaixo de incríveis 20ms.
 
 Rápido, muito rápido.

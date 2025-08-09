@@ -5,3 +5,146 @@
 body {
   background-color: #111827; 
 }
+
+.flash-messages {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  max-width: 300px;
+}
+
+.flash {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.flash-info {
+  background-color: #d1fae5;
+  color: #065f46;
+  border-left: 4px solid #10b981;
+}
+
+.flash-error {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border-left: 4px solid #ef4444;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+@keyframes fadeOut {
+  to { 
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+}
+
+.flash {
+  animation: 
+    fadeIn 0.3s ease-in-out,
+    fadeOut 0.3s ease-in-out 5s forwards;
+}
+
+.markdown-raw {
+  color: #e5e7eb; 
+}
+
+.markdown-raw h1 {
+  @apply text-2xl font-bold mt-12 mb-6 text-gray-100;
+}
+
+.markdown-raw h2 {
+  @apply text-xl font-semibold mt-10 mb-4 text-gray-100;
+}
+
+.markdown-raw h3 {
+  @apply text-lg font-medium mt-8 mb-3 text-gray-100;
+}
+
+.markdown-raw p {
+  @apply my-4 leading-relaxed;
+}
+
+.markdown-raw a {
+  @apply text-pink-400 hover:text-pink-300 underline transition-colors;
+}
+
+.markdown-raw ul,
+.markdown-raw ol {
+  @apply my-4 pl-6;
+}
+
+.markdown-raw li {
+  @apply my-2;
+}
+
+.markdown-raw ul {
+  list-style-type: disc;
+}
+
+.markdown-raw ol {
+  list-style-type: decimal;
+}
+
+.markdown-raw pre {
+  @apply bg-gray-800 rounded p-4 my-6 overflow-x-auto text-sm;
+}
+
+.markdown-raw code {
+  @apply bg-gray-800 px-2 py-1 rounded text-sm font-mono;
+}
+
+.markdown-raw hr {
+  @apply my-8 border-gray-700;
+}
+
+.markdown-raw blockquote {
+  @apply border-l-4 border-gray-600 pl-4 italic text-gray-400 my-6;
+}
+
+.markdown-raw table {
+  @apply w-full my-6 border-collapse;
+}
+
+.markdown-raw th {
+  @apply bg-gray-800 text-left p-3 border-b border-gray-700;
+}
+
+.markdown-raw td {
+  @apply p-3 border-b border-gray-800;
+}
+
+.markdown-raw .data-list {
+  @apply my-4 pl-0 list-none;
+}
+
+.markdown-raw .data-list li {
+  @apply flex items-baseline;
+}
+
+.markdown-raw .data-list li::before {
+  content: "-";
+  @apply mr-2 text-gray-500;
+}

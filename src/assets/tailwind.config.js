@@ -6,7 +6,10 @@ module.exports = {
   content: [
     "./js/**/*.js",
     "../lib/site_web.ex",
-    "../lib/site_web/**/*.*ex"
+    "../lib/site_web/**/*.*ex",
+     "../lib/site_web/components/**/*.ex", 
+    "../lib/site_web/core_components.ex", 
+    "../lib/site_web/core_components/**/*.ex" 
   ],
   corePlugins: {
     float: false,
