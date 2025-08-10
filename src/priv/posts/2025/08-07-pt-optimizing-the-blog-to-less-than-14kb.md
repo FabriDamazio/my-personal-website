@@ -22,13 +22,13 @@ resposta da request. Assim será possível comparar o antes e o depois.
 
 Resposta da request:
 
-- html (3.04kB)
-- app.js (39.26kB)
-- app.css (6.64kB)
-- br_flag.svg (2.81kB)
-- us_flag.svg (702B)
-- cn_flag.svg (722B)
-- favicon.ico (468B)
+    html        (3.04kB)
+     app.js      (39.26kB)
+     app.css     (6.64kB)
+     br_flag.svg (2.81kB)
+     us_flag.svg (702B)
+     cn_flag.svg (722B)
+     favicon.ico (468B)
 
 No total foram 53.64kB de dados recebidos. 
 Nada mal para um app padrão, mas com o espaço para diversas melhorias.
@@ -43,13 +43,13 @@ em HTML posts escritos em markdown.
 
 Depois de removido o apps.js, a resposta da request ficou assim:
 
-- html (3.02kB)
-- app.js (0kB) - removido
-- app.css (6.64kB)
-- br_flag.svg (2.81kB)
-- us_flag.svg (702B)
-- cn_flag.svg (722B)
-- favicon.ico (468B)
+    html        (3.02 kB)
+     app.js      (0 kB) - removed
+     app.css     (6.64 kB)
+     br_flag.svg (2.81 kB)
+     us_flag.svg (702 B)
+     cn_flag.svg (722 B)
+     favicon.ico (468 B)
 
 No total foram 14.36kB de dados recebidos. 
 Uma melhoria e tanto, mas ainda não o suficiente.
@@ -84,12 +84,12 @@ module.exports = {
 Testando após essas mudanças, o tamanho do CSS gerado diminuiu e a resposta
 da request ficou assim:
 
-- html (3.02kB)
-- app.css (4.60kB)
-- br_flag.svg (2.81kB)
-- us_flag.svg (702B)
-- cn_flag.svg (722B)
-- favicon.ico (468B)
+    html        (3.02 kB)
+     app.css     (4.60 kB)
+     br_flag.svg (2.81 kB)
+     us_flag.svg (702 B)
+     cn_flag.svg (722 B)
+     favicon.ico (468 B)
 
 No total foram 12.32kB de dados recebidos. Já esta absurdamente rápido.
 
@@ -129,14 +129,15 @@ agora tem apenas 698B.
 
 Para finalizar, melhorei algumas classes CSS e cheguei no seguinte resultado (ANTES/DEPOIS):
 
-- html (3.04kB) -> (2.48kB)
-- app.js (39.26kB) -> (0kB)
-- app.css (6.64kB) -> (3.95kB)
-- br_flag.svg (2.81kB) -> (698B)
-- us_flag.svg (702B) -> (702B)
-- cn_flag.svg (722B) -> (722B)
-- favicon.ico (468B) -> (468B)
-- TOTAL: (53.64kB) -> (9.02kB) 
+    html        (3.04 kB → 2.48 kB)    (-18%)
+     app.js      (39.26 kB → 0 kB)      (-100%)
+     app.css     (6.64 kB → 3.95 kB)    (-40%)
+     br_flag.svg (2.81 kB → 698 B)      (-75%)
+     us_flag.svg (702 B → 702 B)        (0%)
+     cn_flag.svg (722 B → 722 B)        (0%)
+     favicon.ico (468 B → 468 B)        (0%)
+     -----------------------------------------
+     TOTAL:     53.64 kB → 9.02 kB      (-83%)
 
 Ainda existe espaço para mais otimizações mas por enquanto vou parar por aqui.
 
@@ -148,3 +149,5 @@ Isso sem nenhum tipo de cache. Depois do primeiro acesso com o CSS e SVG já em 
 o blog tem apenas 2.48Kb de dados enviados e reponde em média abaixo de incríveis 30ms.
 
 Rápido, muito rápido.
+
+---
