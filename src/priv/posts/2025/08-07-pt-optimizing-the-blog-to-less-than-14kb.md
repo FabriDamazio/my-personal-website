@@ -2,26 +2,25 @@
     title: "Este blog tem menos de 14kb",
     author: "Fabricio Damazio",
     tags: ~w(elixir),
-    description: "Otimizando um app em Phoenix framework para carregar realmente rápido."
+    description: "Otimizando um app em Phoenix framework para carregar realmente muito rápido."
 }
 ---
-Ontem estava assistindo alguns vídeos aleatórios na internet quando vi
-[este vídeo ↗](https://www.youtube.com/watch?v=ciNXbR5wvhU){: target="_blank" .font-medium .text-pink-800 }
-do Primeagen no Youtube. O vídeo é sobre [este post ↗](https://endtimes.dev/why-your-website-should-be-under-14kb-in-size/)
-{: target="_blank" .font-medium .text-pink-800 } que fala sobre como páginas menores que 14kB carregam muito rápido.
+Ontem assisti [este vídeo ↗](https://www.youtube.com/watch?v=ciNXbR5wvhU){: target="_blank" .font-medium .text-pink-800 }
+onde o Primeagen fala sobre como páginas menores que 14kB podem carregar mais 
+rápido que uma de 15kB (vídeo baseado 
+[neste post ↗](https://endtimes.dev/why-your-website-should-be-under-14kb-in-size/)
+{: target="_blank" .font-medium .text-pink-800 }).
 
-Durante o vídeo fiquei pensando em maneiras de como eu poderia otimizar este blog 
-que é feito em Elixir utilizando o Phoenix Framework.
-
-Abaixo vou explicar o processo de otimização e mostrar o resultado.
+Depois de ver o vídeo fiquei pensando em maneiras de como otimizar o carregamento
+deste blog. Ele é um aplicativo padrão feito em Elixir utilizando o Phoenix Framework
+sem nenhum tipo de otimização realizada.
 
 # O Antes
 
-O blog é um app Phoenix padrão. Nenhum tipo de otimização extra foi realizado.
-Meu primeiro teste será acessar o blog com o cache desligado e anotar o tamanho da 
+Primeiro vou acessar o blog com o cache desligado e anotar o tamanho da 
 resposta da request. Assim será possível comparar o antes e o depois.
 
-Sendo assim, a primeira request teve esta resposta:
+Resposta da request:
 
 - html (3.04kB)
 - app.js (39.26kB)
@@ -34,7 +33,7 @@ Sendo assim, a primeira request teve esta resposta:
 No total foram 53.64kB de dados recebidos. 
 Nada mal para um app padrão, mas com o espaço para diversas melhorias.
 
-# Removendo app.js
+# Removendo o arquivo app.js
 
 A primeira otimização que farei será retirar o arquivo app.js que vem por padrão nos
 aplicativos criados com Phoenix. Este arquivo possui javascript escrito para a 
@@ -58,9 +57,9 @@ Uma melhoria e tanto, mas ainda não o suficiente.
 # Otimizando o Tailwind
 
 Odeio escrever CSS, por isso não abri mão de usar o Tailwind.
-Em um app Phoenix existe um arquivo chamado tailwind.config.js onde é possível
-fazer uma série de configurações de uso do Tailwind. Removi todos plugins e 
-core components possíveis, deixando o arquivo assim:
+Em um app Phoenix  é possível configurar o uso do Tailwind editand o arquivo 
+tailwind.config.js. Remover os plugins e core components não usados parece uma
+boa idéia. Para  isso o arquivo de configuração vai ficar mais ou menos assim:
 
 ```js
 module.exports = {
@@ -82,7 +81,7 @@ module.exports = {
   },
   plugins: []
 ```
-Com essas mudanças, o tamanho do CSS gerado diminuiu e a resposta
+Testando após essas mudanças, o tamanho do CSS gerado diminuiu e a resposta
 da request ficou assim:
 
 - html (3.02kB)
@@ -115,15 +114,16 @@ Agora as bandeiras...
 
 Para representar as bandeiras, o Unicode usa uma combinação de caracteres chamados
 "tag sequences". Isso permitiu que eu implementasse as bandeiras de linguagem do blog 
-utilizando apenas emojis, sem a necessidade de imagens ou SVG. Infelizmente fazendo 
-alguns testes descobri que o Windows não implementa nativamente os emojis de 
-bandeiras (obrigado Microsoft!). A saída então foi usar SVGs com preload.
+utilizando apenas emojis, sem a necessidade do uso de imagens ou SVG. 
+
+Infelizmente fazendo alguns testes descobri que o Windows não implementa nativamente
+os emojis de bandeiras (obrigado Microsoft!). A saída então foi usar SVGs com preload.
 
 # Simplificando a bandeira do Brasil
 
 Os 2.81kB do SVG da bandeira do Brasil parecem abusivos. Para um ícone tão pequeno
-na tela alguns detalhes da bandeira podem ser omitidos. Com essa mudança a bandeira
-agora tem apenas 698B, totalizando 10.21kB.
+alguns detalhes da bandeira podem ser omitidos. Com essa mudança a bandeira
+agora tem apenas 698B.
 
 # O Depois
 
@@ -140,11 +140,11 @@ Para finalizar, melhorei algumas classes CSS e cheguei no seguinte resultado (AN
 
 Ainda existe espaço para mais otimizações mas por enquanto vou parar por aqui.
 
-Com essas otimizações foi possível manter o blog com um tamanho ridiculamente pequeno.
+As otimizações possibilitaram o blog ter um tamanho ridiculamente pequeno.
 No momento, a soma do tamanho de todos arquivos recebidos na primeira request é
-perto de 9Kb.
+perto de 9Kb compactados.
 
 Isso sem nenhum tipo de cache. Depois do primeiro acesso com o CSS e SVG já em cache,
-o blog tem apenas 2.48Kb de dados enviados e reponde em média abaixo de incríveis 20ms.
+o blog tem apenas 2.48Kb de dados enviados e reponde em média abaixo de incríveis 30ms.
 
 Rápido, muito rápido.
