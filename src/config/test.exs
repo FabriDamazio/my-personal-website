@@ -5,19 +5,19 @@ import Config
 # The MIX_TEST_PARTITION environment variable can be used
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
-config :site, Site.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "site_test#{System.get_env("MIX_TEST_PARTITION")}",
-  pool: Ecto.Adapters.SQL.Sandbox,
-  pool_size: System.schedulers_online() * 2
+#config :site, Site.Repo,
+#  username: "postgres",
+#  password: "postgres",
+#  hostname: "localhost",
+#  database: "site_test#{System.get_env("MIX_TEST_PARTITION")}",
+#  pool: Ecto.Adapters.SQL.Sandbox,
+#  pool_size: System.schedulers_online() * 2
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :site, SiteWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "FIv8aEheJiQfMSeHz+IT0MgTXqCKFm3seGFBENN0oHCuS4rD4E4eXFSN48HLWb9z",
+  secret_key_base: "QNF/vCt619VZV23s6TJi9ZaQZAnHf5S/e+LRqGeHlBnX8RTWlhUqkZsvo8RlGNx3",
   server: false
 
 # In test we don't send emails

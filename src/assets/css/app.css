@@ -1,6 +1,7 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import "tailwindcss" source(none);
+@source "../css";
+@source "../js";
+@source "../../lib/site_web";
 
 body {
   background-color: #111827; 
