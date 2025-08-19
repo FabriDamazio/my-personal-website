@@ -51,14 +51,14 @@ COPY lib lib
 
 COPY assets assets
 
+# Compile the release
+RUN mix compile
+
 # compile assets
 RUN mix assets.deploy
 
 # digest assets for production
 RUN mix phx.digest
-
-# Compile the release
-RUN mix compile
 
 # Changes to config/runtime.exs don't require recompiling the code
 COPY config/runtime.exs config/
