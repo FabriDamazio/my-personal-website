@@ -8,11 +8,10 @@ description: "Optimizing a Phoenix framework app to load really fast."
 Yesterday I watched [this video ↗](https://www.youtube.com/watch?v=ciNXbR5wvhU)
 {: target="_blank" .font-medium .text-pink-800 } where Primeagen explains how 
 pages smaller than 14kB can load faster than a 15kB one (video based on 
-[this post ↗](https://endtimes.dev/why-your-website-should-be-under-14kb-in-size/).
+[this post ↗](https://endtimes.dev/why-your-website-should-be-under-14kb-in-size/){: target="_blank" .font-medium .text-pink-800 }).
 
 
 After watching it, I started thinking about ways to optimize this blog's loading. It's a standard Elixir application using Phoenix Framework without any optimizations.
-
 
 
 # The Before

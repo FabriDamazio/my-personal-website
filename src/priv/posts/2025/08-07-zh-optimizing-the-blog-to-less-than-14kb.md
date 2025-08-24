@@ -7,7 +7,7 @@ description: "优化Phoenix框架应用实现极速加载"
 ---
 昨天我观看了[这个视频 ↗](https://www.youtube.com/watch?v=ciNXbR5wvhU)
 {: target="_blank" .font-medium .text-pink-800 }，Primeagen解释了为什么小于14kB的网页比15kB的加载更快
-（视频基于[这篇文章 ↗](https://endtimes.dev/why-your-website-should-be-under-14kb-in-size/))。
+（视频基于[这篇文章 ↗](https://endtimes.dev/why-your-website-should-be-under-14kb-in-size/){: target="_blank" .font-medium .text-pink-800 })。
 
 看完后，我开始思考如何优化这个博客的加载速度。这是一个标准的Phoenix框架应用，尚未进行任何优化。
 
