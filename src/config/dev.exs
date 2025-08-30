@@ -1,7 +1,7 @@
 import Config
 
 # Configure your database
-#config :site, Site.Repo,
+# config :site, Site.Repo,
 #  username: "postgres",
 #  password: "postgres",
 #  hostname: "localhost",

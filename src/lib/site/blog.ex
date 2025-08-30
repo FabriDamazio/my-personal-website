@@ -38,7 +38,7 @@ defmodule Site.Blog do
   @doc """
   Returns the posts with the given id.
   """
-  @spec get_post(String.t()) :: [Post.t()]  | nil
+  @spec get_post(String.t()) :: [Post.t()] | nil
   def get_post(id) when is_binary(id) do
     all_posts()
     |> Enum.filter(fn x -> x.id == id end)
@@ -49,7 +49,6 @@ defmodule Site.Blog do
   """
   @spec get_posts_by_tag(String.t()) :: [Post.t()]
   def get_posts_by_tag(tag) when is_binary(tag) do
-
     all_posts()
     |> Enum.sort_by(& &1.date, {:desc, Date})
     |> Enum.filter(fn x -> x.language == SiteWeb.Gettext |> Gettext.get_locale() end)

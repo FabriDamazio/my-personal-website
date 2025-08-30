@@ -7,7 +7,7 @@ defmodule SiteWeb.PageHTML do
   use SiteWeb, :html
 
   embed_templates "page_html/*"
-  
+
   def tag_classes(tag) do
     case String.downcase(tag) do
       "elixir" -> "bg-purple-100 text-purple-800"

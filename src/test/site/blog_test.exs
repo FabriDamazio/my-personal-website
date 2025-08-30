@@ -16,7 +16,7 @@ defmodule Site.BlogTest do
                id: "third",
                tags: ["world"],
                title: "Third",
-               language: "en",
+               language: "en"
              }
     end
 
@@ -41,7 +41,7 @@ defmodule Site.BlogTest do
                  description: "first",
                  tags: ["hello"],
                  date: ~D[2025-01-01],
-                 language: "en",
+                 language: "en"
                }
              ]
     end

@@ -7,7 +7,7 @@ defmodule Site.Blog.Post do
     :description,
     :tags,
     :date,
-    :language,
+    :language
   ]
   defstruct [
     :id,
@@ -17,7 +17,7 @@ defmodule Site.Blog.Post do
     :description,
     :tags,
     :date,
-    :language,
+    :language
   ]
 
   @type t :: %__MODULE__{
@@ -28,7 +28,7 @@ defmodule Site.Blog.Post do
           description: String.t(),
           tags: [String.t()],
           date: Date.t(),
-          language: String.t(),
+          language: String.t()
         }
 
   def build(filename, attrs, body) do
