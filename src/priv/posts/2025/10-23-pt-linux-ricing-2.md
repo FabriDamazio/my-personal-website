@@ -68,7 +68,7 @@ e fiz tudo manualmente para entender ainda mais o processo. Conforme fui instala
 e configurando, já fui adicionando no shell script a sua automatização. Usei o
 [GNOME Boxes](https://github.com/GNOME/gnome-boxes) para criar uma instalação zerada
 do Arch Linux e ir testando o script. A cada modificação eu voltava a máquina ao
-rstado inicial (instalação limpa do Arch Linux) e rodava o script novamente. 
+estado inicial (instalação limpa do Arch Linux) e rodava o script novamente. 
 O resultado disso foi este [script aqui](https://github.com/FabriDamazio/dotfiles/blob/master/install.sh)
 que está no repositório dos dotfiles.
 
