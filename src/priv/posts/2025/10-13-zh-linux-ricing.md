@@ -1,7 +1,7 @@
 %{
 title: "Linux Ricing作为自我认知的过程",
 author: "Fabricio Damazio",
-tags: ~w(programming linux),
+tags: ~w(linux),
 description: "关于我对Linux Ricing感受的思考"
 }
 ---

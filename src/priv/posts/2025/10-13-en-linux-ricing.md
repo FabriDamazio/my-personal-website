@@ -1,7 +1,7 @@
 %{
     title: "Linux Ricing as a Self-Knowledge Process",
     author: "Fabricio Damazio",
-    tags: ~w(programming linux),
+    tags: ~w(linux),
     description: "Reflections on my feelings towards Linux Ricing."
 }
 ---

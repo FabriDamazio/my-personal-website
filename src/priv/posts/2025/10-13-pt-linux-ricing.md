@@ -1,7 +1,7 @@
 %{
     title: "Linux Ricing como processo de autoconhecimento",
     author: "Fabricio Damazio",
-    tags: ~w(programming linux),
+    tags: ~w(linux),
     description: "Reflexões sobre meus sentimentos em relação ao Linux Ricing."
 }
 ---
